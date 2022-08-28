@@ -8,7 +8,6 @@ import {
   CTA,
   CardDeal,
   Clients,
-  FeedbackCard,
   Footer,
   Hero,
   Navbar,

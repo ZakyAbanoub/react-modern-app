@@ -1,19 +1,52 @@
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { gsap } from "gsap";
 
 import { close, logo, menu } from "../assets";
 import { navLinks } from "../constants";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const navbarRef = useRef();
+
+  useEffect(() => {
+    let tl = gsap.timeline();
+    tl.from(navbarRef.current, { y: -300, rotate: 365, duration: 1 });
+    tl.from(".nav-link", {
+      x: 800,
+      stagger: 0.25,
+      duration: 1,
+    });
+    tl.from(".home__first-section", {
+      x: -1000,
+      // stagger: 0.25,
+      duration: 1,
+    });
+    tl.from(".home__second-section__image", {
+      x: 1000,
+      // stagger: 0.25,
+      duration: 1,
+    });
+    tl.from(".gradient__zone", {
+      opacity: 0,
+      stagger: 0.25,
+      duration: 0.5,
+    });
+  }, []);
+
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
-      <img src={logo} alt="hoobank" className="w-[124px] h-[32px]" />
+      <img
+        ref={navbarRef}
+        src={logo}
+        alt="hoobank"
+        className="w-[124px] h-[32px] logo"
+      />
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}
-            className={`font-poppins font-normal cursor-pointer text-[16px] text-white  ${
+            className={`nav-link font-poppins font-normal cursor-pointer text-[16px] text-white  ${
               index === navLinks.length - 1 ? "mr-0" : "mr-10"
             }`}
           >
