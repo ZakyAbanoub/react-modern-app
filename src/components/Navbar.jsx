@@ -10,16 +10,16 @@ const Navbar = () => {
 
   useEffect(() => {
     let tl = gsap.timeline();
-    tl.from(navbarRef.current, { y: -300, rotate: 365, duration: 1 });
-    tl.from(".nav-link", {
+    gsap.from(".logo", { y: -300, rotate: 365, duration: 1 });
+    gsap.from(".nav-link", {
       x: 800,
       stagger: 0.25,
-      duration: 1,
+      duration: 0.5,
     });
     tl.from(".home__first-section", {
       x: -1000,
       // stagger: 0.25,
-      duration: 1,
+      duration: 0.5,
     });
     tl.from(".home__second-section__image", {
       x: 1000,
