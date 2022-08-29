@@ -28,7 +28,7 @@ const FeatureCard = ({ icon, title, content, index }) => (
 const Business = () => {
   return (
     <section id="features" className={layout.section}>
-      <div className={layout.sectionInfo}>
+      <div className={`${layout.sectionInfo} business__first-section`}>
         <h2 className={styles.heading2}>
           You do the business, <br className="sm:block hidden" /> we'll handle
           the money.
@@ -42,7 +42,7 @@ const Business = () => {
         <Button styles="mt-10" />
       </div>
 
-      <div className={`${layout.sectionImg} flex-col`}>
+      <div className={`${layout.sectionImg} flex-col business__second-section`}>
         {features.map((feature, index) => (
           <FeatureCard key={feature.id} {...feature} index={index} />
         ))}

@@ -1,46 +1,13 @@
-import React, { useRef, useState, useEffect } from "react";
-import { gsap } from "gsap";
-
+import React, { useState } from "react";
 import { close, logo, menu } from "../assets";
 import { navLinks } from "../constants";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
-  const navbarRef = useRef();
-
-  useEffect(() => {
-    let tl = gsap.timeline();
-    gsap.from(".logo", { y: -300, rotate: 365, duration: 1 });
-    gsap.from(".nav-link", {
-      x: 800,
-      stagger: 0.25,
-      duration: 0.5,
-    });
-    tl.from(".home__first-section", {
-      x: -1000,
-      // stagger: 0.25,
-      duration: 0.5,
-    });
-    tl.from(".home__second-section__image", {
-      x: 1000,
-      // stagger: 0.25,
-      duration: 1,
-    });
-    tl.from(".gradient__zone", {
-      opacity: 0,
-      stagger: 0.25,
-      duration: 0.5,
-    });
-  }, []);
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
-      <img
-        ref={navbarRef}
-        src={logo}
-        alt="hoobank"
-        className="w-[124px] h-[32px] logo"
-      />
+      <img src={logo} alt="hoobank" className="w-[124px] h-[32px] logo" />
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
